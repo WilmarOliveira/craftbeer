@@ -1,6 +1,5 @@
 package com.beerhouse.resources;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beerhouse.entities.Beer;
+import com.beerhouse.dto.BeerDTO;
 import com.beerhouse.services.BeerService;
 
 @RestController
@@ -20,10 +19,9 @@ public class BeerResource {
 	private BeerService service;
 
 	@GetMapping
-	public ResponseEntity<List<Beer>> findAll() {
-
-		List<Beer> list = service.findAll();
+	public ResponseEntity<List<BeerDTO>> findAll() {
+		List<BeerDTO> list = service.findAll();
+		
 		return ResponseEntity.ok().body(list);
-
 	}
 }

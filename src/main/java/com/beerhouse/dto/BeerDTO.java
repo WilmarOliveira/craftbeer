@@ -1,20 +1,9 @@
-package com.beerhouse.entities;
+package com.beerhouse.dto;
 
-import java.io.Serializable;
+import com.beerhouse.entities.Beer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+public class BeerDTO {
 
-@Entity
-@Table(name = "tb_beers")
-public class Beer implements Serializable {
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String ingredients;
@@ -22,17 +11,26 @@ public class Beer implements Serializable {
 	private Integer price;
 	private String category;
 	
-	public Beer() {
+	public BeerDTO() {
 		
 	}
 
-	public Beer(Integer id, String name, String ingredients, String alcoholContent, Integer price, String category) {
+	public BeerDTO(Integer id, String name, String ingredients, String alcoholContent, Integer price, String category) {
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
 		this.alcoholContent = alcoholContent;
 		this.price = price;
 		this.category = category;
+	}
+	
+	public BeerDTO(Beer entity) {
+		this.id = entity.getId();
+		this.name = entity.getName();
+		this.ingredients = entity.getIngredients();
+		this.alcoholContent = entity.getAlcoholContent();
+		this.price = entity.getPrice();
+		this.category = entity.getCategory();
 	}
 
 	public Integer getId() {
@@ -82,30 +80,4 @@ public class Beer implements Serializable {
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Beer other = (Beer) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
-	
 }
