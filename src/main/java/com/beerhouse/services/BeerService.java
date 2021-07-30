@@ -1,6 +1,7 @@
 package com.beerhouse.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,14 @@ public class BeerService {
 		List<Beer> list = repository.findAll();
 
 		return list.stream().map(x -> new BeerDTO(x)).collect(Collectors.toList());
+	}
+	
+	@Transactional(readOnly = true)
+	public BeerDTO findById(Integer id) {
+		Optional<Beer> obj = repository.findById(id);
+		
+		Beer entity = obj.get();
+		
+		return new BeerDTO(entity);
 	}
 }
