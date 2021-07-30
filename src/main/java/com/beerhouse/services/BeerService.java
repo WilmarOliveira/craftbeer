@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.beerhouse.dto.BeerDTO;
 import com.beerhouse.entities.Beer;
 import com.beerhouse.repositories.BeerRepository;
+import com.beerhouse.services.exceptions.EntityNotFoundException;
 
 @Service
 public class BeerService {
@@ -29,7 +30,7 @@ public class BeerService {
 	public BeerDTO findById(Integer id) {
 		Optional<Beer> obj = repository.findById(id);
 		
-		Beer entity = obj.get();
+		Beer entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity not Found"));
 		
 		return new BeerDTO(entity);
 	}
