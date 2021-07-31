@@ -1,5 +1,7 @@
 package com.beerhouse.dto;
 
+import java.math.BigDecimal;
+
 import com.beerhouse.entities.Beer;
 
 public class BeerDTO {
@@ -8,14 +10,14 @@ public class BeerDTO {
 	private String name;
 	private String ingredients;
 	private String alcoholContent;
-	private Integer price;
+	private BigDecimal price;
 	private String category;
 	
 	public BeerDTO() {
 		
 	}
 
-	public BeerDTO(Integer id, String name, String ingredients, String alcoholContent, Integer price, String category) {
+	public BeerDTO(Integer id, String name, String ingredients, String alcoholContent, BigDecimal price, String category) {
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
@@ -65,11 +67,11 @@ public class BeerDTO {
 		this.alcoholContent = alcoholContent;
 	}
 
-	public Integer getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

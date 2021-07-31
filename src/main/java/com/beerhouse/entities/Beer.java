@@ -1,6 +1,7 @@
 package com.beerhouse.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,14 +20,14 @@ public class Beer implements Serializable {
 	private String name;
 	private String ingredients;
 	private String alcoholContent;
-	private Integer price;
+	private BigDecimal price;
 	private String category;
 	
 	public Beer() {
 		
 	}
 
-	public Beer(Integer id, String name, String ingredients, String alcoholContent, Integer price, String category) {
+	public Beer(Integer id, String name, String ingredients, String alcoholContent, BigDecimal price, String category) {
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
@@ -67,11 +68,11 @@ public class Beer implements Serializable {
 		this.alcoholContent = alcoholContent;
 	}
 
-	public Integer getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(Integer price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 
