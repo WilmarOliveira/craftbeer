@@ -32,7 +32,7 @@ public class BeerService {
 	}
 	
 	@Transactional(readOnly = true)
-	public BeerDTO findById(Integer id) {
+	public BeerDTO findById(Long id) {
 		Optional<Beer> obj = repository.findById(id);
 		
 		Beer entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not Found"));
@@ -41,7 +41,7 @@ public class BeerService {
 	}
 	
 	@Transactional
-	public BeerDTO update(Integer id, BeerDTO dto) {
+	public BeerDTO update(Long id, BeerDTO dto) {
 		
 		try {
 			Beer entity = repository.getOne(id);
@@ -59,6 +59,26 @@ public class BeerService {
 	}
 	
 	@Transactional
+	public BeerDTO updateChangeds(Long id, BeerDTO dto) {
+		
+		try {
+			Beer entity = repository.getOne(id);
+			entity.setName(dto.getName() != null ? dto.getName() : entity.getName());
+			entity.setIngredients(dto.getIngredients() != null ? dto.getIngredients() : entity.getIngredients());
+			entity.setAlcoholContent(dto.getAlcoholContent() != null ? dto.getAlcoholContent() : entity.getAlcoholContent());
+			entity.setPrice(dto.getPrice() != null ? dto.getPrice() : entity.getPrice());
+			entity.setCategory(dto.getCategory() != null ? dto.getCategory() : entity.getCategory());
+			entity = repository.save(entity);
+			
+			return new BeerDTO(entity);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException("Id " + id + " Not Found ");
+		}
+	}
+	
+	
+	
+	@Transactional
 	public BeerDTO insert(BeerDTO dto) {
 		Beer entity = new Beer();
 		entity.setName(dto.getName());
@@ -71,7 +91,7 @@ public class BeerService {
 		return new BeerDTO(entity);
 	}
 	
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {

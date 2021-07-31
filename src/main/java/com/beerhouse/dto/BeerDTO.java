@@ -6,7 +6,7 @@ import com.beerhouse.entities.Beer;
 
 public class BeerDTO {
 
-	private Integer id;
+	private Long id;
 	private String name;
 	private String ingredients;
 	private String alcoholContent;
@@ -17,7 +17,7 @@ public class BeerDTO {
 		
 	}
 
-	public BeerDTO(Integer id, String name, String ingredients, String alcoholContent, BigDecimal price, String category) {
+	public BeerDTO(Long id, String name, String ingredients, String alcoholContent, BigDecimal price, String category) {
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
@@ -35,11 +35,11 @@ public class BeerDTO {
 		this.category = entity.getCategory();
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,15 +34,22 @@ public class BeerResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<BeerDTO> findById(@PathVariable Integer id) {
+	public ResponseEntity<BeerDTO> findById(@PathVariable Long id) {
 		BeerDTO dto = service.findById(id);
 		
 		return ResponseEntity.ok().body(dto);
 	}
 	
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<BeerDTO> update(@PathVariable Integer id, @RequestBody BeerDTO dto) {
+	public ResponseEntity<BeerDTO> update(@PathVariable Long id, @RequestBody BeerDTO dto) {
 		dto = service.update(id, dto);
+		
+		return ResponseEntity.ok().body(dto);
+	}
+	
+	@PatchMapping(value = "/{id}")
+	public ResponseEntity<BeerDTO> updateChangeds(@PathVariable Long id, @RequestBody BeerDTO dto) {
+		dto = service.updateChangeds(id, dto);
 		
 		return ResponseEntity.ok().body(dto);
 	}
@@ -57,7 +65,7 @@ public class BeerResource {
 	}
 	
 	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<BeerDTO> delete(@PathVariable Integer id) {
+	public ResponseEntity<BeerDTO> delete(@PathVariable Long id) {
 		service.delete(id);
 		
 		return ResponseEntity.noContent().build();
