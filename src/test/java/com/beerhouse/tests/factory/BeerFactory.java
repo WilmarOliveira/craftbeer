@@ -21,4 +21,10 @@ public class BeerFactory {
 	public static BeerDTO createBeerDTO() {
 		return new BeerDTO(createBeer());
 	}
+	
+	public static BeerDTO createBeerDTO(Long id) {
+		BeerDTO dto = createBeerDTO();
+		dto.setId(id);
+		return dto;
+	}
 }
