@@ -1,1 +1,3 @@
-INSERT INTO tb_beers (name, ingredients, alcohol_content, price, category) VALUES ('Heineken', 'Malte, Cevada', '5', 7, 'Malte');
+INSERT INTO tb_beers (name, ingredients, alcohol_content, price, category) VALUES ('Heineken', 'Ingredient1, Ingredient 2, Ingredient3', '5%', 7, 'Lager');
+INSERT INTO tb_beers (name, ingredients, alcohol_content, price, category) VALUES ('Bohemia', 'Ingredient1, Ingredient 2, Ingredient3', '5%', 9.5, 'Pure Malt');
+INSERT INTO tb_beers (name, ingredients, alcohol_content, price, category) VALUES ('Antarctica', 'Ingredient1, Ingredient 2, Ingredient3', '4.9%', 5, 'Pilsen');
