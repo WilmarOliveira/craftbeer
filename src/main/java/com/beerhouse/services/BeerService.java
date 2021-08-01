@@ -49,7 +49,7 @@ public class BeerService {
 			entity.setPrice(dto.getPrice());
 			entity.setCategory(dto.getCategory());
 			entity = repository.save(entity);
-			
+
 			return new BeerDTO(entity);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Id " + id + " Not Found ");
