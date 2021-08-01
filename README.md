@@ -97,22 +97,27 @@ Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://edit
 ### Executando a Aplicação
 
 ```bash
-# clonar repositório
+# Clone o repositório:
 git clone https://github.com/WilmarOliveira/craftbeer.git
 
-# Acesse a pasta do projeto
+# Acesse a pasta do projeto:
 cd craftbeer
 
-# executar o projeto via cmd com o seguinte comando:
+# Execute o projeto via cmd com o seguinte comando:
 mvnw spring-boot:run
+
+# O projeto estará rodando no endereço:
+http://localhost:9000
+
+# Acesso ao banco H2:
+http://localhost:9000/h2-console
 
 ```
 
 ### Coleção do Postman para requisições
 
-1. Uma coleção foi disponibilizada na pasta `docs` do projeto com o nome `CraftBeer.postman_collection.json`;
-2. Abra o postman, clique em File->Import;
-3. Na janela que abrir, clique em `Upload Files` e faça o upload da coleção;
+1. A seguinte coleção foi disponibilizada na pasta `docs`: `CraftBeer.postman_collection.json`;
+2. Para utilizá-la, abra o postman, clique em File -> Import;
+3. Clique em `Upload Files` e faça o upload da coleção;
 4. Clique em import;
 5. A coleção está pronta para ser utilizada via `postman`;
-
