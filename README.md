@@ -94,6 +94,25 @@ Dica: Copie e cole o conteúdo do arquivo acima no [Swagger Editor](https://edit
 
 ## Seção reservada para que você descreva brevemente como executar o seu projeto
 
-Pode ser algo simples, como executar o arquivo Application.java. Ou talvez tenha alguma dependência como base de dados, por exemplo.
+### Executando a Aplicação
 
-TODO
+```bash
+# clonar repositório
+git clone https://github.com/WilmarOliveira/craftbeer.git
+
+# Acesse a pasta do projeto
+cd craftbeer
+
+# executar o projeto via cmd com o seguinte comando:
+mvnw spring-boot:run
+
+```
+
+### Coleção do Postman para requisições
+
+1. Uma coleção foi disponibilizada na pasta `docs` do projeto com o nome `CraftBeer.postman_collection.json`;
+2. Abra o postman, clique em File->Import;
+3. Na janela que abrir, clique em `Upload Files` e faça o upload da coleção;
+4. Clique em import;
+5. A coleção está pronta para ser utilizada via `postman`;
+
