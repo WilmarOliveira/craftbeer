@@ -123,3 +123,7 @@ http://localhost:9000
 3. Clique em `Upload Files` e faça o upload da coleção;
 4. Clique em import;
 5. A coleção está pronta para ser utilizada via `postman`;
+
+### Testes unitários
+
+* Para executar os testes, acesse a raiz do projeto via cmd e execute o comando: `mvnw test`
