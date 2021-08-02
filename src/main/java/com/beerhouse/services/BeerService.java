@@ -89,6 +89,7 @@ public class BeerService {
 		return new BeerDTO(entity);
 	}
 	
+	@Transactional
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);

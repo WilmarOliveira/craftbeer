@@ -1,10 +1,12 @@
 package com.beerhouse.dto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.beerhouse.entities.Beer;
 
-public class BeerDTO {
+public class BeerDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	private Long id;
 	private String name;
