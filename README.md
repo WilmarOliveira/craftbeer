@@ -109,14 +109,16 @@ mvnw spring-boot:run
 # O projeto estará rodando no endereço:
 http://localhost:9000
 
-# Acesso ao banco H2:
-http://localhost:9000/h2-console
-
 ```
+
+### Acessando o banco H2
+
+* Com o projeto em execução, o banco h2 ficará disponível em: http://localhost:9000/h2-console;
+* Caso precise configurar o mesmo, a configuração se encontra em: `src/main/resources/application-test.properties`;
 
 ### Coleção do Postman para requisições
 
-1. A seguinte coleção foi disponibilizada na pasta `docs`: `CraftBeer.postman_collection.json`;
+1. A  coleção foi disponibilizada em : `docs/CraftBeer.postman_collection.json`;
 2. Para utilizá-la, abra o postman, clique em File -> Import;
 3. Clique em `Upload Files` e faça o upload da coleção;
 4. Clique em import;
